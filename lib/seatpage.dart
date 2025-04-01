@@ -49,6 +49,9 @@ class _SeatPageState extends State<SeatPage> {
 
   @override
   Widget build(BuildContext context) {
+    final isDark = Theme.of(context).brightness == Brightness.dark;
+    final textColor = isDark ? Colors.white : Colors.black;
+
     return Scaffold(
       appBar: AppBar(
         leading: IconButton(
@@ -58,6 +61,7 @@ class _SeatPageState extends State<SeatPage> {
           },
         ),
         title: const Text('좌석 선택'),
+        backgroundColor: isDark ? Colors.purple[900] : Colors.purple,
       ),
       body: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 60),
@@ -66,9 +70,24 @@ class _SeatPageState extends State<SeatPage> {
             Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  Text('수서', style: TextStyle(fontSize: 40, fontWeight: FontWeight.bold, color: Colors.purple)), 
-                  const Icon(Icons.arrow_circle_right_outlined, size: 30, color: Colors.grey),
-                  Text('부산', style: TextStyle(fontSize: 40, fontWeight: FontWeight.bold, color: Colors.purple)),               
+                  Text('수서', 
+                    style: TextStyle(
+                      fontSize: 40, 
+                      fontWeight: FontWeight.bold, 
+                      color: Colors.purple
+                    )
+                  ), 
+                  Icon(Icons.arrow_circle_right_outlined, 
+                    size: 30, 
+                    color: isDark ? Colors.white70 : Colors.grey
+                  ),
+                  Text('부산', 
+                    style: TextStyle(
+                      fontSize: 40, 
+                      fontWeight: FontWeight.bold, 
+                      color: Colors.purple
+                    )
+                  ),               
                 ]
             ),
             Row(
@@ -83,18 +102,28 @@ class _SeatPageState extends State<SeatPage> {
                   ),
                 ),
                 SizedBox(width: 4),
-                Text('선택됨', style: TextStyle(fontSize: 20)),
+                Text('선택됨', 
+                  style: TextStyle(
+                    fontSize: 20,
+                    color: textColor,
+                  )
+                ),
                 SizedBox(width: 20),
                 Container(
                   width: 24,
                   height: 24,
                   decoration: BoxDecoration(
-                    color: Colors.grey[300]!,
+                    color: isDark ? Colors.grey[700] : Colors.grey[300]!,
                     borderRadius: BorderRadius.circular(8),
                   ),
                 ),
                 SizedBox(width: 4),
-                Text('선택안됨', style: TextStyle(fontSize: 20)),
+                Text('선택안됨', 
+                  style: TextStyle(
+                    fontSize: 20,
+                    color: textColor,
+                  )
+                ),
               ]
             ),
             Expanded(
@@ -114,7 +143,7 @@ class _SeatPageState extends State<SeatPage> {
                     onTap: () => toggleSeat(seatNumber),
                     child: Container(
                       decoration: BoxDecoration(
-                        color: isSelected ? Colors.purple : Colors.grey[300],
+                        color: isSelected ? Colors.purple : (isDark ? Colors.grey[700] : Colors.grey[300]),
                         borderRadius: BorderRadius.circular(8),
                       ),
                       child: Center(
@@ -122,7 +151,7 @@ class _SeatPageState extends State<SeatPage> {
                           seatNumber.toString(),
                           style: TextStyle(
                             fontSize: 16,
-                            color: isSelected ? Colors.white : Colors.black,
+                            color: isSelected ? Colors.white : textColor,
                           ),
                         ),
                       ),
