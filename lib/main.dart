@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_train_app/homepage.dart';
+import 'package:flutter_train_app/seatpage.dart';
 
 void main() {
   runApp(const MyApp());
@@ -11,7 +12,8 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      home: Homepage(),
+      // home: Homepage(),
+      home: SeatPage(),
     );
   }
 }
