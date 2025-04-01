@@ -1,16 +1,44 @@
-# flutter_train_app
+# 기차 예매 앱
 
-A new Flutter project.
+Flutter를 사용하여 만든 기차 예매 앱입니다.
 
-## Getting Started
+## 주요 기능
 
-This project is a starting point for a Flutter application.
+### 1. 역 선택 기능
+- 출발역과 도착역 선택 가능
+- 같은 역을 선택할 수 없음 (예: 부산역에서 부산역으로 가는 열차 없음)
+- 이미 선택된 역은 다른 선택 목록에서 제외됨
 
-A few resources to get you started if this is your first Flutter project:
+### 2. 좌석 선택 기능
+- 4x5 배치의 20개 좌석 제공
+- 최대 4개까지 좌석 선택 가능
+- 선택된 좌석은 보라색으로 표시
+- 선택된 좌석 목록을 상단에 표시
+- 좌석 선택/해제 시 애니메이션 효과
+- 선택된 좌석에 그림자 효과 적용
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+### 3. 다크 테마 지원
+- 시스템 설정에 따라 자동으로 다크/라이트 테마 전환
+- 다크 모드에서 눈의 피로도 감소
+- 모든 UI 요소가 테마에 맞게 자동 조정
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+### 4. 예매 확인
+- 선택된 좌석이 있을 때만 예매하기 버튼 활성화
+- 예매 확인 다이얼로그 표시
+- 예매 완료 시 홈 화면으로 자동 이동
+
+## 기술 스택
+- Flutter
+- Material Design
+- Cupertino (iOS 스타일) 다이얼로그
+- 애니메이션 컨트롤러
+
+## 사용된 주요 패키지
+- flutter/material.dart
+- flutter/cupertino.dart
+
+## 실행 방법
+1. Flutter 개발 환경 설정
+2. 프로젝트 클론
+3. `flutter pub get` 실행
+4. `flutter run` 실행
